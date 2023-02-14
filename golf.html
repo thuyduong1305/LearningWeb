@@ -1,0 +1,30 @@
+<html>
+<select id="par">
+    <option value="3">Par 3</option>
+    <option value="4">Par 4</option>
+    <option value="5">Par 5</option>
+</select>
+<label for="score">Số Gậy</label>
+<input type="number" id="score">
+<button onclick="submitHandler()">Submit Điểm</button>
+
+</html>
+<script>
+    const submitHandler = () => {
+        let x = document.getElementById("score").value;
+        let par = document.getElementById("par").value;
+        // let e = document.getElementById("par")
+        // let par = parseFloat(e.options[e.selectedIndex].value); 
+        // console.log(par);
+        if (x <= 0 || x === "") { // x === null
+            alert("số Gậy không hợp lệ");
+        }
+        else if (x === 1) { alert("Hole-in-one!"); }
+        else if (x <= par - 2) { alert("Eagle"); }
+        else if (x <= par - 1) { alert("Birdy"); }
+        else if (x === par) { alert("Par"); }
+        else if (x === par + 1) { alert("Bogey"); }
+        else if (x === par + 2) { alert("Double Bogey"); }
+        else if (x >= par + 3) alert("Thua roi");
+    }
+</script>
